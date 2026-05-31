@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptでできること</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8fb;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff9800;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #e65100;
+        }
+
+        .example-box {
+            background: #fff3e0;
+            border-left: 6px solid #ff9800;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .demo-area {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 0.7rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #f57c00;
+        }
+
+        a.back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #e65100;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>JavaScriptでできることの例</h1>
+        <p>Webページに動きや便利な機能を追加できるのが JavaScript です。</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. ボタンを押してメッセージを表示する</h2>
+            <p>
+                JavaScript を使うと、ボタンをクリックしたときにメッセージを表示することができます。
+                これは、ユーザーの操作に反応する基本的な例です。
+            </p>
+            <div class="example-box">
+                <strong>できること:</strong> クリックに反応して内容を変える
+            </div>
+            <div class="demo-area">
+                <button onclick="showMessage()">クリックしてみよう</button>
+                <p id="message"></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. 数を自動で計算する</h2>
+            <p>
+                JavaScript は計算も得意です。例えば商品の合計金額、テストの点数、簡単なゲームのスコアなどをその場で計算できます。
+            </p>
+            <div class="example-box">
+                <strong>例:</strong> 3 + 5 を計算して表示する
+            </div>
+            <div class="demo-area">
+                <button onclick="calculateSum()">計算する</button>
+                <p id="sum-result"></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. ページの見た目を変える</h2>
+            <p>
+                JavaScript では、ボタンを押したときに色を変えたり、文字を切り替えたりできます。これにより、動きのあるページを作れます。
+            </p>
+            <div class="example-box">
+                <strong>できること:</strong> 背景色を変えてページに変化をつける
+            </div>
+            <div class="demo-area">
+                <button onclick="changeBackground()">背景色を変える</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. 入力内容をチェックする</h2>
+            <p>
+                フォームに何か入力してもらうとき、JavaScript を使えば「空欄では送信できない」などのチェックができます。
+                これを入力チェックといいます。
+            </p>
+            <div class="example-box">
+                <strong>できること:</strong> 入力漏れを防ぐ
+            </div>
+            <div class="demo-area">
+                <input type="text" id="nameInput" placeholder="名前を入力してください">
+                <button onclick="checkInput()">確認する</button>
+                <p id="input-result"></p>
+            </div>
+        </section>
+
+        <a class="back-link" href="index.html">← トップページに戻る</a>
+    </main>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').textContent = 'こんにちは！JavaScriptでメッセージを表示しました。';
+        }
+
+        function calculateSum() {
+            const result = 3 + 5;
+            document.getElementById('sum-result').textContent = '3 + 5 = ' + result;
+        }
+
+        function changeBackground() {
+            document.body.style.backgroundColor = '#fff8e1';
+        }
+
+        function checkInput() {
+            const name = document.getElementById('nameInput').value;
+            const result = document.getElementById('input-result');
+
+            if (name.trim() === '') {
+                result.textContent = '名前を入力してください。';
+                result.style.color = 'red';
+            } else {
+                result.textContent = name + ' さん、入力ありがとうございます。';
+                result.style.color = 'green';
+            }
+        }
+    </script>
+</body>
+
+</html>
